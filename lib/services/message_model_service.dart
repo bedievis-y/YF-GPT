@@ -5,7 +5,7 @@ class MessageModelService {
   static final openAI = OpenAI.instance.build(
       token: apiToken,
       baseOption: HttpSetup(
-        receiveTimeout: Duration(seconds: 4),
+        receiveTimeout: const Duration(seconds: 30),
       ),
       isLogger: true);
 
@@ -13,7 +13,7 @@ class MessageModelService {
     final request = CompleteText(
       prompt: question,
       model: kTextDavinci3,
-      maxTokens: 4000,
+      maxTokens: 2000,
     );
 
     try {
